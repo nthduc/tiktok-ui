@@ -1,0 +1,121 @@
+@import 'normalize.css';
+// @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700;900&display=swap');
+@import url('https://use.typekit.net/emv3zbo.css');
+:root {
+    --primary: #fe2c55;
+    --black: #000;
+    --white: #fff;
+    --text-color: #161823;
+
+    --font-family: 'proxima-nova', sans-serif;
+
+    //Default Layouts
+    --default-layout-header-height: 60px;
+    --default-layout-width: 1150px;
+    --default-layout-horizontal-spacer: 24px;
+    
+    
+}
+//Font Embeded
+@font-face {
+    font-family: ProximaNova;
+    src: url('/src/assets/fonts/Proxima-Nova-Bold.woff');
+    font-weight: 700;
+}
+@font-face {
+    font-family: ProximaNova;
+    src: url('/src/assets/fonts/ProximaNova-Semibold.woff2');
+    font-weight: 600;
+}
+@font-face {
+    font-family: ProximaNova;
+    src: url('/src/assets/fonts/Proxima-Nova-Regular.woff2');
+    font-weight: 400;
+}
+@font-face {
+    font-family: SofiaPro;
+    src: url('/src/assets/fonts/sofiapro-bold.woff');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: SofiaPro;
+    src: url('/src/assets/fonts/sofiapro-semibold.otf');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: SofiaPro;
+    src: url('/src/assets/fonts/sofiapro-regular.woff');
+    font-weight: 400;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: 1.6rem;
+    line-height: 1.5;
+    text-rendering: optimizeSpeed;
+    color : var(--black);
+}
+//ScrollBar CSS
+html *::-webkit-scrollbar {
+    border-radius: 0;
+    width: 8px;
+}
+
+html *::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .15);
+}
+
+html *::-webkit-scrollbar-track {
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+
+button,input,[tabindex]{
+    outline: none;
+    border: none;
+}
+
+a {
+    color : var(--text-color);
+    text-decoration: none; /* bo gach chan*/
+}
+
+//Custom Tippy tooltip
+body{
+      .tippy-box {
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    background-color: rgba(84,84,84,0.92);
+    overflow-y: overlay;
+  }
+  
+
+
+  .tippy-arrow {
+    color: rgba(84,84,84,0.92);
+  }
+
+  .tippy-content {
+      padding: 8px 9px;
+  }
+
+  .tippy-box[data-placement^=bottom]>.tippy-arrow:before {
+      top: -8px;
+  }
+}
