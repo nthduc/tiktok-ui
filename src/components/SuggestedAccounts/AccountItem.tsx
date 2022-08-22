@@ -9,7 +9,7 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import AccountPreview from './AccountPreview';
 import { DataUserSuggested } from '@/types';
-import Image from '../Image';
+import Image from '@/components/Image';
 
 const cx = classNames.bind(styles);
 
@@ -33,7 +33,13 @@ const AccountItem = ({ data }: Props): JSX.Element => {
         /* Using a wrapper <div> or <span> tag around the reference element solves 
     this by creating a new parentNode context*/
         <div>
-            <Tippy interactive offset={[-20, 0]} delay={[800, 0]} render={renderPreview} placement="bottom">
+            <Tippy 
+            interactive 
+            offset={[-20, 0]} 
+            delay={[800, 0]} 
+            render={renderPreview} 
+            placement="bottom"
+            >
                 <div className={cx('account-item')}>
                     <Image 
                     className={cx('avatar')} 

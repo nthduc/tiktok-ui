@@ -11,7 +11,7 @@ import styles from './Search.module.scss';
 import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { DataApi,Data } from '@/types';
+import { DataSearchAccount } from '@/types';
 import { useDebounce } from '@/hooks';
 
 const cx = className.bind(styles);
@@ -21,7 +21,7 @@ const cx = className.bind(styles);
 const Search: React.FC = () => {
     //STATE
     const [searchValue,setSearchValue] = useState<string>('')
-    const [searchResult, setSearchResult] = useState<Array<DataApi>>([]);
+    const [searchResult, setSearchResult] = useState<Array<DataSearchAccount>>([]);
     const [showResult,setShowResult] = useState<boolean>(false);
     const [loading,setLoading] = useState<boolean>(false);
 
@@ -129,4 +129,4 @@ const Search: React.FC = () => {
   )
 }
 
-export default Search
+export default Search;

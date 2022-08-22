@@ -6,30 +6,30 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames/bind';
 import styles from './AccountItem.module.scss';
 import Image from '@/components/Image';
-import { DataApi,Data } from '@/types';
+import { DataSearchAccount } from '@/types';
 
 const cx = classNames.bind(styles);
 type Props = {
-    data?: Data | any
+    data?: DataSearchAccount | null;
 }
 
 // Modal tìm kiếm sẽ hiện danh sách Accounts
 // Remove React.FC from Typescript template
 const AccountItem  = ({ data }: Props): JSX.Element => {
     return (
-        <Link to={`/@${data.nickname}`} className={cx('wrapper')}>
+        <Link to={`/@${data?.nickname}`} className={cx('wrapper')}>
             <Image
                 className={cx('avatar')}
-                src={data.avatar}
-                alt={data.full_name}
+                src={data?.avatar}
+                alt={data?.full_name}
             />
             <div className={cx('info')}>
                 <h4 className={cx('name')}>
-                    <span>{data.full_name}</span>
-                    {data.tick && <FontAwesomeIcon className={cx('check')} icon={faCheckCircle as IconProp} /> }
+                    <span>{data?.full_name}</span>
+                    {data?.tick && <FontAwesomeIcon className={cx('check')} icon={faCheckCircle as IconProp} /> }
                     
                 </h4>
-                <span className={cx('username')}>{data.nickname}</span>
+                <span className={cx('username')}>{data?.nickname}</span>
             </div>
         </Link>
     );

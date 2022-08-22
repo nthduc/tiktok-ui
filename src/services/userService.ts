@@ -10,7 +10,7 @@ export const getSuggested = async ({page, perPage}: Props) => {
         const res = await httpRequest.get('users/suggested',{
             params: {
                 page,
-                per_page: perPage ,
+                per_page: perPage,
             },
         });
         return res.data;

@@ -38,31 +38,26 @@ export interface DataApi {
     }
 }
 
-export interface Data {
-        
-    
-        data : {
-
-            id : number,
-            first_name : string,
-            last_name : string,
-            full_name : string,
+export interface DataSearchAccount {
+            id: number,
+            first_name: string,
+            last_name: string,
+            full_name: string,
             nickname: string,
-            avatar : string,
-            bio : string,
-            tick : boolean,
+            avatar: string,
+            bio: string,
+            tick: boolean,
             followings_count : number,
             followers_count : number,
-            likes_count : number,
-            website_url : string,
-            facebook_url : string,
-            youtube_url : string,
+            likes_count: number,
+            website_url: string,
+            facebook_url: string,
+            youtube_url: string,
             twitter_url: string,
             instagram_url: string,
-            created_at : string,
-            updated_at : string,
-        }
-   
+            created_at: string | Date,
+            updated_at: string | Date,
+        
 };
 
 export interface DataUserSuggested {
@@ -81,8 +76,8 @@ export interface DataUserSuggested {
     youtube_url: string,
     twitter_url: string,
     instagram_url: string,
-    created_at : string | Date,
-    updated_at : string | Date
+    created_at: string | Date,
+    updated_at: string | Date
     popular_video: {
         id: number,
         uuid: string,
