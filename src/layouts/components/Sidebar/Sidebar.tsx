@@ -22,16 +22,24 @@ const Sidebar: React.FC = () => {
     // STATE
     const [suggestedUsers, setSuggestedUsers] = useState<Array<DataUserSuggested> | null>([]);
 
-    //useEffect
+    // Call API
     useEffect(() => {
-        userService
-            .getSuggested({ page: 1, perPage: PER_PAGE })
-            .then((data) => {
-                setSuggestedUsers((prevUsers: Array<DataUserSuggested> | any) => [...prevUsers, ...data]);
-            })
-            .catch((error) => console.log(error));
+        const fetchApi = async () => {
+            try {
+                const res = await userService.getSuggested({ page: 1, perPage: PER_PAGE });
+                setSuggestedUsers((prevUsers: Array<DataUserSuggested> | any) => {
+                    if(prevUsers.length > 0) {
+                        return [...res];
+                    } else {
+                        return [...prevUsers, ...res];
+                    }
+                });
+            } catch (err) {
+                console.log(err);
+            }
+        };
+        fetchApi();
     }, []);
-
     //handle
 
     return (
@@ -47,10 +55,22 @@ const Sidebar: React.FC = () => {
                 <MenuItem title="LIVE" to={config.routes.live} icon={<LiveIcon />} activeIcon={<LiveActiveIcon />} />
             </Menu>
 
-            <SuggestedAccounts label="Suggested accounts" data={suggestedUsers}/>
+            <SuggestedAccounts label="Suggested accounts" data={suggestedUsers} />
             {/* <SuggestedAccounts label='Followed accounts'/> */}
         </aside>
     );
 };
 
 export default Sidebar;
+
+/* 
+//useEffect
+    useEffect(() => {
+        userService
+            .getSuggested({ page: 1, perPage: PER_PAGE })
+            .then((data) => {
+                setSuggestedUsers((prevUsers: Array<DataUserSuggested> | any) => [...prevUsers, ...data]);
+            })
+            .catch((error) => console.log(error));
+    }, []);
+*/
