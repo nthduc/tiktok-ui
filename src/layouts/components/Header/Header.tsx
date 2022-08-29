@@ -1,10 +1,8 @@
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { faSignIn } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Search from '../Search';
 import Tippy from '@tippyjs/react';
+import ReactDOM from 'react-dom/client';
 import className from 'classnames/bind';
-import React from 'react';
+import React, { useState } from 'react';
 import 'tippy.js/dist/tippy.css'; // optional
 import { images } from '@/assets/images';
 import Button from '@/components/Button';
@@ -16,16 +14,17 @@ import {
     KeyboardIcon,
     LanguageIcon,
     LogoutIcon,
-    MessageIcon, SettingIcon,
+    MessageIcon,
+    SettingIcon,
     UploadIcon,
-    UserIcon
+    UserIcon,
 } from '@/components/Icons';
 import Image from '@/components/Image';
 import Menu, { MenuItems } from '@/components/Popper/Menu';
+import Modal from '@/components/Modal';
 import styles from './Header.module.scss';
 import config from '@/config';
 import { LanguageData } from '@/data/language';
-
 
 const cx = className.bind(styles);
 
@@ -35,7 +34,7 @@ const MENU_ITEMS = [
         title: 'English',
         children: {
             title: 'Language',
-            data: LanguageData
+            data: LanguageData,
         },
     },
     {
@@ -51,8 +50,16 @@ const MENU_ITEMS = [
 
 const Header: React.FC = () => {
     // State
+    const [modalIsOpen, setIsOpen] = useState<boolean>(false);
+    const currentUser = false;
 
-    const currentUser = true;
+    function openModal() {
+        setIsOpen(true);
+    }
+
+    function closeModal() {
+        setIsOpen(false);
+    }
 
     //handle
     const handleMenuChange = (menuItem: MenuItems) => {
@@ -94,16 +101,16 @@ const Header: React.FC = () => {
             <div className={cx('inner')}>
                 {/* Logo */}
                 <div className={cx('logo')}>
-                    <Link to = {config.routes.home} className={cx('logo-link')}>
+                    <Link to={config.routes.home} className={cx('logo-link')}>
                         <img src={images.logo} alt="TikTok" />
                     </Link>
                 </div>
                 {/* Search */}
                 {/* Hover vào sẽ hiện ra text */}
                 <Search />
-                
+
                 {/* End Search */}
-                
+
                 {/* Check User */}
                 <div className={cx('actions')}>
                     {currentUser ? (
@@ -113,7 +120,7 @@ const Header: React.FC = () => {
                                     <UploadIcon />
                                 </button>
                             </Tippy>
-                            
+
                             <Tippy delay={[0, 1]} content="Message">
                                 <button className={cx('action-btn')}>
                                     {/* <img src = {images.message} /> */}
@@ -140,7 +147,7 @@ const Header: React.FC = () => {
                             <Button
                                 to=""
                                 primary
-                                leftIcon={<FontAwesomeIcon icon={faSignIn as IconProp} />}
+                                // leftIcon={<FontAwesomeIcon icon={faSignIn as IconProp} />}
                                 // onClick={()=>alert('Clicked')}
                             >
                                 Login
@@ -164,6 +171,20 @@ const Header: React.FC = () => {
                     </Menu>
                 </div>
             </div>
+            {/* Modal */}
+            <button onClick={openModal}>Open Modal</button>
+            {/* Render bên ngoài -> ra ngoài thẻ root -> gọi là kỹ thuật Portals */}
+            <Modal isOpen={modalIsOpen}>
+                <button onClick={closeModal}>close</button>
+                <div>I am a modal</div>
+                <form>
+                    <input />
+                    <button>tab navigation</button>
+                    <button>stays</button>
+                    <button>inside</button>
+                    <button>the modal</button>
+                </form>
+            </Modal>
         </header>
     );
 };
