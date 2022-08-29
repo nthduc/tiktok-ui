@@ -1,8 +1,19 @@
 import React from 'react';
+import Portal from '@/components/Portal';
 
 const Following: React.FC = () => {
+
+  const handlePublish = () => {
+
+  }
+
   return (
-    <h1>Following</h1>
+    <div>
+      <h1>Following</h1>
+      <Portal containerId='publish-btn'>
+        <button onClick={handlePublish}>Save and Publish</button>
+      </Portal>
+    </div>
   )
 }
 

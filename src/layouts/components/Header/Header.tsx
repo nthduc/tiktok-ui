@@ -137,6 +137,7 @@ const Header: React.FC = () => {
                     ) : (
                         <>
                             {/* RIGHT HEADER */}
+                            {/* <div id="publish btn"></div> */}
                             <Button
                                 to=""
                                 text
