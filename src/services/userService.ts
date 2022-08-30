@@ -15,7 +15,7 @@ export const getSuggested = async ({page, perPage}: Props) => {
         });
         return res.data;
         
-    } catch (err) {
+    } catch (err: unknown) {
         
         throw new Error("Failed fetchApi Search !"+ err);
     }

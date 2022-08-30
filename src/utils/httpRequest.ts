@@ -10,7 +10,7 @@ export const get  = async (path: string, option = {}) => {
         const response = await httpRequest.get(path,option);
         return response.data;
 
-    }catch (err) {
+    }catch (err: unknown) {
         throw new Error("Failed get data request" + err);
     }
 }

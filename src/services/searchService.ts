@@ -1,6 +1,6 @@
 import * as httpRequest from '@/utils/httpRequest';
 
-export const search = async (q : string,type = 'less') => {
+export const search = async (q: string, type = 'less') => {
     try {
         const res = await httpRequest.get('users/search',{
             params: {
@@ -10,7 +10,7 @@ export const search = async (q : string,type = 'less') => {
         });
         return res.data;
         
-    } catch (err) {
+    } catch (err: unknown) {
         
         throw new Error("Failed fetchApi Search !"+ err);
     }

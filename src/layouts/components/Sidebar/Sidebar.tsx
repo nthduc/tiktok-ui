@@ -34,7 +34,7 @@ const Sidebar: React.FC = () => {
                         return [...prevUsers, ...res];
                     }
                 });
-            } catch (err) {
+            } catch (err: unknown) {
                 console.log(err);
             }
         };
