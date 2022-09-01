@@ -4,7 +4,7 @@ import Button from '@/components/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { DataUserSuggested } from '@/types';
+import { DataUserSuggested } from '@/interfaces';
 
 const cx = classNames.bind(styles);
 

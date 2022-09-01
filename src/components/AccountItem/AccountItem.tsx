@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames/bind';
 import styles from './AccountItem.module.scss';
 import Image from '@/components/Image';
-import { DataSearchAccount } from '@/types';
+import { DataSearchAccount } from '@/interfaces';
 
 const cx = classNames.bind(styles);
 type Props = {

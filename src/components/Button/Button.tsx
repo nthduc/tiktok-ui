@@ -40,7 +40,7 @@ const Button = ({
     ...passProps
 }: Props) : JSX.Element => {
     let Comp: CompoType = 'button';
-    const props = { onClick, to, href, ...passProps } as any;
+    const props = { onClick, to, href, ...passProps } as any
 
     //Remove Event Listener when Button disabled
     if(disabled) {

@@ -1,8 +1,7 @@
-import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './SuggestedAccounts.module.scss';
 import AccountItem from './AccountItem';
-import { DataUserSuggested } from '@/types';
+import { DataUserSuggested } from '@/interfaces';
 
 const cx = classNames.bind(styles);
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './SuggestedAccounts.module.scss';
 import Tippy from '@tippyjs/react/headless';
@@ -8,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import AccountPreview from './AccountPreview';
-import { DataUserSuggested } from '@/types';
+import { DataUserSuggested } from '@/interfaces';
 import Image from '@/components/Image';
 
 const cx = classNames.bind(styles);

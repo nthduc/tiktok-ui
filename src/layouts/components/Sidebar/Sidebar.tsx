@@ -13,7 +13,7 @@ import {
 } from '@/components/Icons';
 import SuggestedAccounts from '@/components/SuggestedAccounts';
 import * as userService from '@/services';
-import { DataUserSuggested } from '@/types';
+import { DataUserSuggested } from '@/interfaces';
 
 const cx = classNames.bind(styles);
 const PER_PAGE = 5;

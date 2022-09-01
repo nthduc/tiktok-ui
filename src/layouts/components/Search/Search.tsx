@@ -11,7 +11,7 @@ import styles from './Search.module.scss';
 import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { DataSearchAccount } from '@/types';
+import { DataSearchAccount } from '@/interfaces';
 import { useDebounce } from '@/hooks';
 
 const cx = className.bind(styles);
