@@ -84,15 +84,33 @@ root
      │      │      └── Wrapper.tsx
      │      │
      │      │
-     │      └── SuggestedAccounts
-     │                     ├── AccountPreview
-     │                     │               ├── AccountPreview.module.scss        
-     │                     │               └── AccountPreview.tsx
-     │                     │ 
-     │                     ├── SuggestedAccounts.module.scss
-     │                     └── SuggestedAccounts.tsx
+     │      ├── SuggestedAccounts
+     │      │               ├── AccountPreview
+     │      │               │               ├── AccountPreview.module.scss        
+     │      │               │               └── AccountPreview.tsx
+     │      │               │ 
+     │      │               ├── SuggestedAccounts.module.scss
+     │      │               └── SuggestedAccounts.tsx
+     │      │
+     │      │
+     │      ├── Modal
+     │      │       ├── Modal.module.scss
+     │      │       └── Modal.tsx
+     │      │
+     │      │ 
+     │      └── Portal
+     │              └── Portal.tsx
      │
-     │      
+     │
+     │
+     │
+     │
+     │
+     │
+     │
+     │
+     │
+     │
      ├── config
      │      └── routes.ts
      ├── data
