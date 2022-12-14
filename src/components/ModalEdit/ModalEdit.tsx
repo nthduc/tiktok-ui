@@ -22,7 +22,7 @@ interface Props {
     setChange: React.Dispatch<React.SetStateAction<string>>;
 }
 // Remove React.FC from Typescript template
-const ModalEdit = ({ setModalEdit, avatar, firstName1, lastName1, nickname, bio, setChange }: Props) => {
+const ModalEdit = ({ setModalEdit, avatar, firstName1, lastName1, nickname, bio, setChange }: Props): JSX.Element => {
     // useState
     const [nicknameEdit, setNicknameEdit] = useState<string>(nickname);
     const [bioEdit, setBioEdit] = useState<string>(bio);

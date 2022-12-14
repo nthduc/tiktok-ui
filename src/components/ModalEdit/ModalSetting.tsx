@@ -14,7 +14,7 @@ interface Props {
     idVideo: number;
 }
 
-const ModalSetting = ({ title, setModal, idVideo }: Props) => {
+const ModalSetting = ({ title, setModal, idVideo }: Props): JSX.Element => {
     // useState
     const [runcheck, setRuncheck] = useState<boolean>(false);
     const [duet, setDuet] = useState<boolean>(false);
