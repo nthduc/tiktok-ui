@@ -13,7 +13,7 @@ interface Props {
     setModal: React.Dispatch<React.SetStateAction<boolean>>;
     idVideo: number;
 }
-
+// Remove React.FC from Typescript template
 const ModalSetting = ({ title, setModal, idVideo }: Props): JSX.Element => {
     // useState
     const [runcheck, setRuncheck] = useState<boolean>(false);

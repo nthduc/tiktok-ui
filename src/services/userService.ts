@@ -15,6 +15,17 @@ type AuthData = {
     first_name: string;
     bio: string;
 }
+
+type LoginData = {
+    email: string;
+    password: string;
+}
+
+type RegisterData = {
+    type: string;
+    email: string;
+    password: string;
+}
 // get Suggested
 export const getSuggested = async ({ page, perPage }: Props) => {
     try {
@@ -79,7 +90,7 @@ export const getAVideo = async (id: Props) => {
 };
 
 //post Login
-export const postLogin = async (dataSend: AuthData, errorMess?: ErrorMsg) => {
+export const postLogin = async (dataSend: LoginData, errorMess?: ErrorMsg) => {
     try {
         const res = await httpRequest.post('auth/login', dataSend);
         return res;
@@ -99,7 +110,7 @@ export const postUpdateUser = async (dataSend: AuthData, errorMess?: ErrorMsg) =
 };
 
 // post Register
-export const postRegister = async (dataSend: AuthData, errorMess?: ErrorMsg) => {
+export const postRegister = async (dataSend: RegisterData, errorMess?: ErrorMsg) => {
     try {
         const res = await httpRequest.post('auth/register', dataSend);
         return res.data;
