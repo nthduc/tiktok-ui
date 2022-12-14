@@ -5,7 +5,7 @@ type Props = {
     perPage: number;
 }
 
-export const getSuggested = async ({page, perPage}: Props) => {
+export const getSuggested = async ({ page, perPage }: Props) => {
     try {
         const res = await httpRequest.get('users/suggested',{
             params: {
