@@ -3,9 +3,6 @@ import * as httpRequest from '@/utils/httpRequest';
 type Props = {
     page: number;
     perPage: number;
-    nicknameValue: string;
-    idVideo: number;
-    id: number;
 }
 
 type ErrorMsg = string;
