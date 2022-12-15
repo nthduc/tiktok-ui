@@ -9,12 +9,141 @@ import { useState, memo } from 'react';
 import Qrcode from './LoginWith/Qrcode';
 import SignUp from './LoginWith/SignUp';
 import Email from './LoginWith/Email';
+import Portal from '@/components/Portal';
+import { FormattedMessage } from 'react-intl';
 
+
+const cx = classNames.bind(styles);
+
+interface Props {
+  setLogin: React.Dispatch<React.SetStateAction<boolean>>;
+}
 // Remove React.FC from Typescript template
-const ModalOverlay = () => {
-  return (
-    <div>ModalOverlay</div>
-  )
+const Login = ({ setLogin }: Props): JSX.Element => {
+    const [register, setRegister] = useState<boolean>(true);
+    const [qrcode, setQrcode] = useState<string>('');
+    const [homeHiden, setHomeHiden] = useState<boolean>(false);
+
+    // handleBack
+    const handleBack = () => {
+        setQrcode('');
+        setHomeHiden(false);
+    };
+    // switch login
+    const handleQrcode = () => {
+        setQrcode('qrcode');
+        setHomeHiden(true);
+    };
+    const handleEmail = () => {
+        setQrcode('email');
+        setHomeHiden(true);
+    };
+
+    // title login
+    let titleLogin = <FormattedMessage id="login.title1" />;
+    if (!register) {
+        titleLogin = <FormattedMessage id="login.signUp" />;
+    }
+    if (qrcode === 'qrcode') {
+        titleLogin = <FormattedMessage id="login.qr" />;
+    } else if (qrcode === 'email') {
+        titleLogin = <FormattedMessage id="login.email" />;
+    }
+    return (
+        <div className={cx('login')}>
+            {homeHiden && register ? <IoMdArrowBack className={cx('back-icon')} onClick={handleBack} /> : <></>}
+            <AiOutlineClose className={cx('close-icon', 'close')} onClick={() => setLogin(false)} />
+            <div className={cx('login-body')}>
+                <div className={cx('title')}>{titleLogin}</div>
+                {register ? (
+                    <div className={cx('content')}>
+                        {qrcode === 'qrcode' ? <Qrcode /> : qrcode === 'email' ? <Email setLogIn={setLogin} /> : <></>}
+
+                        <div className={cx(homeHiden && 'home-hiden')}>
+                            <Link to="#">
+                                <div className={cx('channel-item')} onClick={handleQrcode}>
+                                    <AiOutlineQrcode className={cx('chanel-icon')} />
+                                    <p className={cx('chanel-text')}>
+                                        <FormattedMessage id="login.qr" />
+                                    </p>
+                                </div>
+                            </Link>
+                            <Link to="#">
+                                <div className={cx('channel-item')} onClick={handleEmail}>
+                                    <AiOutlineUser className={cx('chanel-icon')} />
+                                    <p className={cx('chanel-text')}>
+                                        <FormattedMessage id="login.email" />
+                                    </p>
+                                </div>
+                            </Link>
+                            <Link to="#">
+                                <div className={cx('channel-item')}>
+                                    <BsFacebook className={cx('chanel-icon', 'facebook-icon')} />
+                                    <p className={cx('chanel-text')}>
+                                        <FormattedMessage id="login.facebook" />
+                                    </p>
+                                </div>
+                            </Link>
+                            <Link to="#">
+                                <div className={cx('channel-item')}>
+                                    <FcGoogle className={cx('chanel-icon')} />
+                                    <p className={cx('chanel-text')}>
+                                        <FormattedMessage id="login.google" />
+                                    </p>
+                                </div>
+                            </Link>
+                            <Link to="#">
+                                <div className={cx('channel-item')}>
+                                    <AiFillInstagram className={cx('chanel-icon', 'instagram-icon')} />
+                                    <p className={cx('chanel-text')}>
+                                        <FormattedMessage id="login.instagram" />
+                                    </p>
+                                </div>
+                            </Link>
+                        </div>
+                    </div>
+                ) : (
+                    <SignUp />
+                )}
+            </div>
+            <div className={cx('switch')}>
+                <p>{register ? <FormattedMessage id="login.don" /> : <FormattedMessage id="login.already" />}</p>
+                {register ? (
+                    <div
+                        className={cx('switch-signup')}
+                        onClick={() => {
+                            setRegister(false);
+                            setQrcode('');
+                        }}
+                    >
+                        <FormattedMessage id="login.signUp" />
+                    </div>
+                ) : (
+                    <div
+                        className={cx('switch-signup')}
+                        onClick={() => {
+                            setRegister(true);
+                            setHomeHiden(false);
+                        }}
+                    >
+                        <FormattedMessage id="login.signUp" />
+                    </div>
+                )}
+            </div>
+        </div>
+    );
+};
+// Remove React.FC from Typescript template
+const ModalOverlay = ({ setLogin }: Props): JSX.Element => {
+ return (
+        <Portal>
+            <div className={cx('wrapper')} onClick={() => setLogin(false)}>
+                <div className={cx('body')} onClick={(e) => e.stopPropagation()}>
+                    <Login setLogin={setLogin} />
+                </div>
+            </div>
+        </Portal>
+    );
 }
 
-export default ModalOverlay
+export default memo(ModalOverlay);

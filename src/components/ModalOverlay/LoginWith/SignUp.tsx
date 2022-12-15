@@ -9,7 +9,7 @@ import { actions } from '@/store';
 import { FormattedMessage } from 'react-intl';
 
 const cx = classNames.bind(styles);
-
+// Remove React.FC from Typescript template
 const SignUp = () => {
 
     const msg = {

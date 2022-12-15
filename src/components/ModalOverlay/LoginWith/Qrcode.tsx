@@ -7,7 +7,7 @@ import Image from '@/components/Image';
 import { images } from '@/assets/images';
 
 const cx = classNames.bind(styles);
-
+// Remove React.FC from Typescript template
 const Qrcode = () => {
   return (
     <div className={cx('wrapper')}>
