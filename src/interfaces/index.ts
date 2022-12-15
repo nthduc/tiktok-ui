@@ -113,3 +113,25 @@ export interface DataUserSuggested {
         }
     }
 };
+
+export interface DataVideo {
+    data: {
+        user: {
+            is_followed: boolean;
+            id: number;
+            nickname: string;
+            avatar: any;
+            first_name: string;
+            last_name: string;
+            name: string;
+            followers_count: number;
+            likes_count: number;
+    },
+    description: string;
+    music: any;
+    likes_count: number;
+    file_url: string;
+    is_liked: boolean;
+    comments_count: number;
+}
+};

@@ -26,6 +26,10 @@ type RegisterData = {
     email: string;
     password: string;
 }
+
+type ID = {
+    id: number
+}
 // get Suggested
 export const getSuggested = async ({ page, perPage }: Props) => {
     try {
@@ -120,7 +124,7 @@ export const postRegister = async (dataSend: RegisterData, errorMess?: ErrorMsg)
 };
 
 // like post
-export const postLikedPost = async ({ id }: Props) => {
+export const postLikedPost = async ({ id }: ID) => {
     try {
         const res = await httpRequest.post(`videos/${id}/like`);
         return res.data;
@@ -130,7 +134,7 @@ export const postLikedPost = async ({ id }: Props) => {
 };
 
 // Unlike post
-export const postUnLikedPost = async ({ id }: Props) => {
+export const postUnLikedPost = async ({ id }: ID ) => {
     try {
         const res = await httpRequest.post(`videos/${id}/unlike`);
         return res.data;
