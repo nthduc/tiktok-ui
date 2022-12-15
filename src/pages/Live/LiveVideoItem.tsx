@@ -17,7 +17,7 @@ interface Props {
 
 }
     // Remove React.FC from Typescript template
-const LiveVideoItem = ({ avatar, nickName, id, name, background, content, viewers }: Props) => {
+const LiveVideoItem = ({ avatar, nickName, id, name, background, content, viewers }: Props): JSX.Element => {
     return (
         <div className={cx('wrapper')}>
             <div

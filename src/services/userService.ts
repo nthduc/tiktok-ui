@@ -61,7 +61,7 @@ export const getFollowing = async ({ page }: Props) => {
 
 
 // get An User
-export const getAnUser = async (nicknameValue: Props) => {
+export const getAnUser = async (nicknameValue: string) => {
     try {
         const res = await httpRequest.get(`users/${nicknameValue}`);
         return res.data;
