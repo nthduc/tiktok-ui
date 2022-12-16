@@ -12,6 +12,8 @@ import Live from '@/pages/Live';
 import Messages from '@/pages/Messages';
 import Watching from '@/pages/Watching';
 import Settings from '@/pages/Settings';
+import Feedback from '@/pages/Feedback';
+
 //public routes
 const publicRoutes = [
     { path: config.routes.home, component: Home },
@@ -23,6 +25,7 @@ const publicRoutes = [
     { path: config.routes.messages, component: Messages, layout: HeaderOnly },
     { path: config.routes.watching, component: Watching, layout: null },
     { path: config.routes.settings, component: Settings, layout: HeaderOnly },
+    { path: config.routes.feedback, component: Feedback, layout: HeaderOnly },
 ];
 //private routes
 // Khi đăng nhập vào sẽ có các routes private
