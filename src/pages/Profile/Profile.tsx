@@ -14,7 +14,7 @@ import BoxShare from '@/components/BoxShare';
 import { BiBlock, BiUserCheck } from 'react-icons/bi';
 
 import * as anUserService from '@/services/userService';
-import LoadingIcon from '@/assets/LoadingIcon';
+import LoadingIcon from '@/components/LoadingIcon/LoadingIcon';
 import ModalEdit from '@/components/ModalEdit/ModalEdit';
 import * as userService from '@/services/userService';
 

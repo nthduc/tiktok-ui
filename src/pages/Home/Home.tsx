@@ -6,7 +6,7 @@ import { BiSkipNextCircle } from 'react-icons/bi';
 import { memo, useCallback, useEffect, useRef, useState } from 'react';
 
 import * as videoListService from '@/services/getVideoList';
-import LoadingIcon from '@/assets/LoadingIcon';
+import LoadingIcon from '@/components/LoadingIcon/LoadingIcon';
 
 const cx = classNames.bind(styles);
 

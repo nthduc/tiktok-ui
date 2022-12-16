@@ -4,7 +4,7 @@ import styles from './Following.module.scss';
 
 import * as userService from '@/services/userService';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import LoadingIcon from '@/assets/LoadingIcon';
+import LoadingIcon from '@/components/LoadingIcon/LoadingIcon';
 import { DataUserSuggested } from '@/interfaces';
 
 const INIT_PAGE = 1;
