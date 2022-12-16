@@ -3,7 +3,7 @@ import * as httpRequest from '@/utils/httpRequest';
 type Props = {
     page: number;
     perPage: number;
-}
+};
 
 type ErrorMsg = string;
 
@@ -11,38 +11,41 @@ type AuthData = {
     last_name: string;
     first_name: string;
     bio: string;
-}
+};
 
 type LoginData = {
     email: string;
     password: string;
-}
+};
 
 type RegisterData = {
     type: string;
     email: string;
     password: string;
-}
+};
 
 type ID = {
-    id: number
-}
+    id: number;
+};
+
+type PostCreateVideo = {
+    last_name?: string;
+    first_name?: string;
+    bio?: string;
+};
 // get Suggested
 export const getSuggested = async ({ page, perPage }: Props) => {
     try {
-        const res = await httpRequest.get('users/suggested',{
+        const res = await httpRequest.get('users/suggested', {
             params: {
                 page,
                 per_page: perPage,
             },
         });
         return res.data;
-        
     } catch (err: unknown) {
-        
-        throw new Error("Failed fetchApi Search !"+ err);
+        throw new Error('Failed fetchApi Search !' + err);
     }
-
 };
 
 // get Following
@@ -54,11 +57,10 @@ export const getFollowing = async ({ page }: Props) => {
             },
         });
         return res.data;
-    } catch (err : unknown) {
+    } catch (err: unknown) {
         console.log(err);
     }
 };
-
 
 // get An User
 export const getAnUser = async (nicknameValue: string) => {
@@ -131,7 +133,7 @@ export const postLikedPost = async ({ id }: ID) => {
 };
 
 // Unlike post
-export const postUnLikedPost = async ({ id }: ID ) => {
+export const postUnLikedPost = async ({ id }: ID) => {
     try {
         const res = await httpRequest.post(`videos/${id}/unlike`);
         return res.data;
@@ -161,7 +163,7 @@ export const postUnFollow = async (idUser: number, errorMess?: ErrorMsg) => {
 };
 
 // Upload
-export const postCreateVideo = async (data: AuthData) => {
+export const postCreateVideo = async (data: PostCreateVideo) => {
     try {
         const res = await httpRequest.post('videos', data);
         return res;
