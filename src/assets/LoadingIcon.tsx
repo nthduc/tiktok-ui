@@ -1,16 +1,15 @@
 import Image from '@/components/Image';
-import { images } from './images';
 import classNames from 'classnames/bind';
 import styles from './LoadingIcon.module.scss';
 import { memo } from 'react';
 
 const cx = classNames.bind(styles);
 
-const  LoadingIcon = () => {
+const LoadingIcon = () => {
     return (
         <Image
             className={cx('loading')}
-            src="https://www.citypng.com/public/uploads/preview/loading-load-icon-transparent-png-11639609114lctjenyas8.png"
+            src="https://cdn.dribbble.com/users/2287419/screenshots/14792137/media/024f0a08feba2284082a3b0c5877d7bb.gif"
         />
     );
 }

@@ -9,6 +9,7 @@ import Profile from '@/pages/Profile';
 import Upload from '@/pages/Upload';
 import Search from '@/pages/Search';
 import Live from '@/pages/Live';
+import Messages from '@/pages/Messages';
 //public routes
 const publicRoutes = [
     { path: config.routes.home, component: Home },
@@ -17,6 +18,7 @@ const publicRoutes = [
     { path: config.routes.profile, component: Profile, layout: DefaultLayout },
     { path: config.routes.upload, component: Upload, layout: HeaderOnly },
     { path: config.routes.search, component: Search, layout: null },
+    { path: config.routes.messages, component: Messages, layout: HeaderOnly },
 ];
 //private routes
 // Khi đăng nhập vào sẽ có các routes private
