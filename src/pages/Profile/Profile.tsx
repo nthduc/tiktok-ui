@@ -34,7 +34,7 @@ interface PropsVideo {
     id: number;
     description: string;
 }
-
+// Remove React.FC from Typescript template
 const Profile = () => {
     // useState
     const [active, setActive] = useState<boolean>(true);
