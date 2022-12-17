@@ -138,7 +138,7 @@ const ModalOverlay = ({ setLogin }: Props): JSX.Element => {
  return (
         <Portal>
             <div className={cx('wrapper')} onClick={() => setLogin(false)}>
-                <div className={cx('body')} onClick={(e) => e.stopPropagation()}>
+                <div className={cx('body')} onClick={(e:React.BaseSyntheticEvent<MouseEvent, EventTarget & HTMLDivElement, EventTarget>) => e.stopPropagation()}>
                     <Login setLogin={setLogin} />
                 </div>
             </div>

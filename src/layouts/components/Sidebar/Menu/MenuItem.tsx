@@ -2,16 +2,17 @@ import React from 'react';
 import { NavLink, To } from 'react-router-dom';
 import className from 'classnames/bind';
 import styles from './Menu.module.scss';
+import { memo } from 'react';
 
 const cx = className.bind(styles);
 
 type Props = {
-    title?: string;
+    title?: string | any;
     to: To;
     icon?: JSX.Element;
     activeIcon?: JSX.Element;
 }
-
+// Remove React.FC from Typescript template
 const MenuItem = ({ title, to , icon , activeIcon}: Props): JSX.Element => {
   return (
     <NavLink className={(nav) => cx('menu-item', { active: nav.isActive })} to={to}>
@@ -22,4 +23,4 @@ const MenuItem = ({ title, to , icon , activeIcon}: Props): JSX.Element => {
   )
 }
 
-export default MenuItem;
+export default memo(MenuItem);

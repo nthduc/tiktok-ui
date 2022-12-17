@@ -18,7 +18,7 @@ const Volume = ( { videoRef }: Props): JSX.Element => {
     const [volume, setVolume] = useState<number>(initVolume);
 
     const progressRef = useRef() as (React.MutableRefObject<HTMLInputElement>) as any;
-    const [inputValue, setInputValue] = useState<string | number>(localStorage.getItem('VOLUME') ?? 0);
+    const [inputValue, setInputValue] = useState<string | number>(localStorage.getItem('VOLUME') ?? 50);
     const handleInput = (e : React.ChangeEvent<HTMLInputElement>) => {
         progressRef.current.value = e.target.value;
         setInputValue(e.target.valueAsNumber);

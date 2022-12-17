@@ -8,7 +8,6 @@ import {
     SET_LANGUAGE,
 } from './constants';
 const user_log_in = localStorage.getItem('USER_LOG_IN');
-
 const initState = {
     userLogIn: { userLogIn: user_log_in ?? null, status: user_log_in ? true : false },
 
@@ -18,7 +17,8 @@ const initState = {
     listComments: [],
     commentsNow: [],
     followingAccounts: [],
-    language: JSON.parse(localStorage.getItem('LANGUAGE') || '{}') || 'vi',
+    // @ts-ignore
+    language: JSON.parse(localStorage.getItem('LANGUAGE')) || 'en',
 };
 
 function reducer(state: any , action: any) {

@@ -9,20 +9,37 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import AccountPreview from './AccountPreview';
 import { DataUserSuggested } from '@/interfaces';
 import Image from '@/components/Image';
+import { useCallback, useState } from 'react';
+import * as userService  from '@/services'
+import ModalOverlay from '@/components/ModalOverlay';
 
 const cx = classNames.bind(styles);
 
 type Props = {
     data?: DataUserSuggested | null;
+    isFollowBtn?: boolean;
 };
 // Remove React.FC from Typescript template
-const AccountItem = ({ data }: Props): JSX.Element => {
+const AccountItem = ({ data , isFollowBtn}: Props): JSX.Element => {
+    // useState
+    const [follow, setFollow] = useState<boolean>(true);
+    const [login, setLogin] = useState<boolean>(false);
+
+    const handleClick = useCallback(() => {
+        setFollow(!follow);
+        if (follow) {
+            userService.postFollow(data?.id ?? 0);
+        } else {
+            userService.postUnFollow(data?.id ?? 0);
+        }
+    }, [data?.id, follow]);
+
     const renderPreview = (props: Object) => {
         // Show Modal
         return (
             <div tabIndex={-1} {...props}>
                 <PopperWrapper>
-                    <AccountPreview data={data}/>
+                    <AccountPreview data={data} follow={follow} handleClick={handleClick} setLogin={setLogin}/>
                 </PopperWrapper>
             </div>
         );
@@ -32,6 +49,9 @@ const AccountItem = ({ data }: Props): JSX.Element => {
         /* Using a wrapper <div> or <span> tag around the reference element solves 
     this by creating a new parentNode context*/
         <div>
+            {/* Check Login */}
+            {login ? <ModalOverlay setLogin={setLogin} /> : ''}
+
             <Tippy 
             interactive 
             offset={[-20, 0]} 

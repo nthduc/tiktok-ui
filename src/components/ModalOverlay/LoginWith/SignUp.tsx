@@ -102,7 +102,7 @@ const SignUp = () => {
     <div className={cx('signup-body')}>
             <form className={cx('form')}>
                 <div className={cx('div-label')}>
-                    <FormattedMessage key="login.create" />
+                    <FormattedMessage id="login.create" />
                 </div>
                 <div>
                     {/* , 'invalid' */}
@@ -152,7 +152,7 @@ const SignUp = () => {
                 
                 <div className={cx('errMessage')}>{errMessage}</div>
                 <button type="button" className={cx('submit-btn')} onClick={onSubmit}>
-                    <FormattedMessage key="login.signUp" />
+                    <FormattedMessage id="login.signUp" />
                 </button>
             </form>
 

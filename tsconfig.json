@@ -20,6 +20,10 @@
       "@/*": ["./src/*"]
     },
   },
-  "include": ["src"],
+  "include": ["src","node_modules/@formatjs/intl-pluralrules/**/*.d.ts","node_modules/@formatjs/intl-relativetimeformat/**/*.d.ts"],
+  "exclude"        : [
+    "node_modules",
+    "**/*spec.ts"
+],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -22,7 +22,7 @@ import { actions } from '@/store';
 import { useStore } from '@/hooks';
 import ModalOverlay from '@/components/ModalOverlay';
 import { FormattedMessage } from 'react-intl';
-import { DataSearchAccount } from '@/interfaces';
+import { DataUserSuggested } from '@/interfaces';
 
 const cx = classNames.bind(styles);
 const IS_LOGIN = localStorage.getItem('USER_LOG_IN') === null ? false : true;
@@ -38,7 +38,7 @@ interface PropsVideo {
 const Profile = () => {
     // useState
     const [active, setActive] = useState<boolean>(true);
-    const [anUser, setAnUser] = useState<Array<DataSearchAccount> | any>([]);
+    const [anUser, setAnUser] = useState<Array<DataUserSuggested> | any>([]);
     const [isUser, setIsUser] = useState<boolean>(false);
     const [loading, setLoading] = useState<boolean>(true);
     const [isFollow, setIsFollow] = useState<boolean>(false);
@@ -60,6 +60,7 @@ const Profile = () => {
         anUserService
             .getAnUser(nicknameValue)
             .then((data) => {
+                // console.log(data)
                 setAnUser(data);
                 setLoading(false);
                 if (JSON.parse(localStorage.getItem('USER_LOG_IN') || '{}')?.nickname === data.nickname) {
@@ -110,7 +111,7 @@ const Profile = () => {
             <div className={cx('info')}>
                 <div>
                     <div className={cx('header-info')}>
-                        <Image src={anUser.avatar} className={cx('avatar')} />
+                        <Image src={anUser.avatar ?? ""} className={cx('avatar')} />
                         <div className={cx('name-info')}>
                             <h4 className={cx('nickname')}>
                                 {anUser.nickname} {anUser.tick && <AiFillCheckCircle className={cx('icon-tick')} />}

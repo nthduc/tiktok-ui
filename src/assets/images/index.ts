@@ -25,6 +25,9 @@ import userGroupActive from './userGroupActive.svg';
 import qr from './qr.svg';
 import qrPhone from './qrPhone.svg';
 import phoneBackground from './phoneBackground.svg';
+import logoWhite from './logoWhite.svg';
+import logoSmall from './logoSmall.svg';
+import loadingLogo from './loadingLogo.svg'
 export const images = {
     logo,
     check,
@@ -53,4 +56,7 @@ export const images = {
     qr,
     qrPhone,
     phoneBackground,
+    logoWhite,
+    logoSmall,
+    loadingLogo,
 };

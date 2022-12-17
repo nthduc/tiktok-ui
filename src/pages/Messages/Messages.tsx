@@ -15,6 +15,7 @@ import MessageUser from './MessageUser';
 
 const cx = classNames.bind(styles);
 
+// @ts-ignore
 const dataUser = JSON.parse(localStorage.getItem('USER_LOG_IN') || '{}');
 const isUser = true;
 // Remove React.FC from Typescript template

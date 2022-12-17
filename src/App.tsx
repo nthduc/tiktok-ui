@@ -1,10 +1,16 @@
 
-import { Fragment } from 'react';
+import { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { publicRoutes } from '@/routes';
 import { DefaultLayout } from '@/layouts';
 
 function App(): JSX.Element {
+
+    useEffect(() => {
+        console.log('%cStop!', 'color: red; font-size: 30px; font-weight: bold;');
+        console.log('%c Copyright (C) 2020-2022 Nguyễn Thái Đức rights reserved.', 'color: gray; font-size: 8px; font-weight: bold;');
+    },[])
+
     return (
         <Router>
             <div className="App">

@@ -25,7 +25,7 @@ type RegisterData = {
 };
 
 type ID = {
-    id: number;
+    id: number | string | null;
 };
 
 type PostCreateVideo = {
@@ -33,6 +33,11 @@ type PostCreateVideo = {
     first_name?: string;
     bio?: string;
 };
+
+type GetFollowing = {
+    page: number;
+}
+
 // get Suggested
 export const getSuggested = async ({ page, perPage }: Props) => {
     try {
@@ -49,7 +54,7 @@ export const getSuggested = async ({ page, perPage }: Props) => {
 };
 
 // get Following
-export const getFollowing = async ({ page }: Props) => {
+export const getFollowing = async ({ page }: GetFollowing) => {
     try {
         const res = await httpRequest.get('me/followings', {
             params: {
@@ -65,7 +70,7 @@ export const getFollowing = async ({ page }: Props) => {
 // get An User
 export const getAnUser = async (nicknameValue: string) => {
     try {
-        const res = await httpRequest.get(`users/${nicknameValue}`);
+        const res = await httpRequest.get(`users${nicknameValue}`);
         return res.data;
     } catch (err: unknown) {
         console.log(err);
@@ -73,7 +78,7 @@ export const getAnUser = async (nicknameValue: string) => {
 };
 
 // get Video
-export const getVideo = async (idVideo: Props) => {
+export const getVideo = async (idVideo: any ) => {
     try {
         const res = await httpRequest.get(`videos/${idVideo}`);
         return res.data;
@@ -83,7 +88,7 @@ export const getVideo = async (idVideo: Props) => {
 };
 
 // get A Video
-export const getAVideo = async (id: Props) => {
+export const getAVideo = async (id: number) => {
     try {
         const res = await httpRequest.get(`users/${id}/videos`);
         return res.data;
@@ -193,7 +198,7 @@ export const getListComments = async (uuidVideo: number) => {
 };
 
 // post create new comment
-export const postCreateNewComment = async (uuid: number, data: AuthData) => {
+export const postCreateNewComment = async (uuid: number, data: { comment: string }) => {
     try {
         const res = await httpRequest.post(`videos/${uuid}/comments`, data);
         return res.data;

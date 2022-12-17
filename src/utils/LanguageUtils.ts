@@ -6,11 +6,12 @@ const flattenMessages = (nestedMessages: any, prefix = '') => {
         return {};
     }
     return Object.keys(nestedMessages).reduce((messages, key) => {
-        const value = nestedMessages[key];
-        const prefixedKey = prefix ? `${prefix}.${key}` : key;
+        let value = nestedMessages[key];
+        let prefixedKey = prefix ? `${prefix}.${key}` : key;
 
         if (typeof value === 'string') {
-            Object.assign(messages, { [prefixedKey]: value });
+            (messages as any)[prefixedKey] = value;
+            // Object.assign(messages, { [prefixedKey]: value });
         } else {
             Object.assign(messages, flattenMessages(value, prefixedKey));
         }
@@ -32,5 +33,6 @@ export default class LanguageUtils {
 
     static getFlattenedMessages() {
         return messages;
+        
     }
 }

@@ -1,13 +1,16 @@
 import axios from 'axios';
-
+let token = localStorage.getItem('TOKEN');
+if (token) {
+    token = token?.slice(1, token.length - 1);
+}
 const httpRequest = axios.create({
     baseURL: import.meta.env.VITE_APP_BASE_URL,
-    // headers: {
-    //     'Content-Type': 'application/json',
-    //     Accept: 'application/json',
-    //     Authorization: `Bearer ${token}`,
-    //     type: 'formData',
-    // },
+    headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        Authorization: `Bearer ${token}`,
+        type: 'formData',
+    },
 });
 //Thông thường dùng axios res.data.data => custom res.data
 export const get = async (path: string, option = {}) => {

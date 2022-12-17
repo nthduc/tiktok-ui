@@ -3,6 +3,26 @@
 @import url('https://use.typekit.net/emv3zbo.css');
 :root {
     --primary: #fe2c55;
+    --bg-color: white;
+    --bg-color-hover: rgba(22, 24, 35, 0.03);
+    --bg-gray: #f1f1f2;
+    --bg-color-hover-btn-fl: #fe2c550f;
+    --bg-color-btn-following: white;
+    --bg-color-hover-btn-following: #1618230a;
+    --bg-modal-color: rgba(0, 0, 0, 0.5);
+    --bg-color-sidebar: rgba(231, 228, 228, 0.1);
+    --box-shadow-color: rgba(22, 24, 26, 0.5);
+
+    --text-color-black: black;
+    --text-color-white: white;
+    --text-color-gray: #2f3035bf;
+    --tick-color: #20d5ec;
+    --border-color: #1618231a;
+    --box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
+    --box-shadow-share: 1px 1px 2px 2px rgba(0, 0, 0, 0.2);
+    --scroll-color: rgba(0, 0, 0, 0.15);
+    --transparent-color: transparent;
+
     --black: #000;
     --white: #fff;
     --text-color: #161823;
@@ -50,15 +70,16 @@
     font-weight: 400;
 }
 
-html {
-    font-size: 62.5%;
-}
-
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing:border-box;
 }
+
+html {
+    font-size: 62.5%;
+}
+
 
 body {
     font-family: var(--font-family);

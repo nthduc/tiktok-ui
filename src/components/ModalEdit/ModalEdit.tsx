@@ -112,7 +112,7 @@ const ModalEdit = ({ setModalEdit, avatar, firstName1, lastName1, nickname, bio,
                 >
                     <div className={cx('header')}>
                         <div>
-                            <FormattedMessage key="profile.title" />
+                            <FormattedMessage id="profile.title" />
                         </div>
                         <div className={cx('icon-close')} onClick={handleCloseModel}>
                             <AiOutlineClose className={cx('icon-close-item')} />
@@ -121,7 +121,7 @@ const ModalEdit = ({ setModalEdit, avatar, firstName1, lastName1, nickname, bio,
                     <div className={cx('content')}>
                         <div className={cx('content-item')}>
                             <div className={cx('content-label')}>
-                                <FormattedMessage key="profile.photo" />
+                                <FormattedMessage id="profile.photo" />
                             </div>
                             <div className={cx('avatar-content')} onClick={handleEditAvatar}>
                                 <input
@@ -138,7 +138,7 @@ const ModalEdit = ({ setModalEdit, avatar, firstName1, lastName1, nickname, bio,
                         </div>
                         <div className={cx('content-item')}>
                             <div className={cx('content-label')}>
-                                <FormattedMessage key="profile.username" />
+                                <FormattedMessage id="profile.username" />
                             </div>
                             <div className={cx('edit-area')}>
                                 <input
@@ -149,13 +149,13 @@ const ModalEdit = ({ setModalEdit, avatar, firstName1, lastName1, nickname, bio,
                                 />
                                 <p className={cx('link-username')}>www.tiktok.com/@{nicknameEdit}</p>
                                 <p className={cx('site-username')}>
-                                    <FormattedMessage key="profile.content" />
+                                    <FormattedMessage id="profile.content" />
                                 </p>
                             </div>
                         </div>
                         <div className={cx('content-item')}>
                             <div className={cx('content-label')}>
-                                <FormattedMessage key="profile.firstname" />
+                                <FormattedMessage id="profile.firstname" />
                             </div>
                             <div className={cx('edit-area')}>
                                 <input
@@ -168,7 +168,7 @@ const ModalEdit = ({ setModalEdit, avatar, firstName1, lastName1, nickname, bio,
                         </div>
                         <div className={cx('content-item')}>
                             <div className={cx('content-label')}>
-                                <FormattedMessage key="profile.lastname" />
+                                <FormattedMessage id="profile.lastname" />
                             </div>
                             <div className={cx('edit-area')}>
                                 <input
@@ -181,7 +181,7 @@ const ModalEdit = ({ setModalEdit, avatar, firstName1, lastName1, nickname, bio,
                         </div>
                         <div className={cx('content-item', 'last-item')}>
                             <div className={cx('content-label')}>
-                                <FormattedMessage key="profile.bio" />
+                                <FormattedMessage id="profile.bio" />
                             </div>
                             <div>
                                 <div className={cx('edit-area', 'input-text', 'bio')}>
@@ -197,10 +197,10 @@ const ModalEdit = ({ setModalEdit, avatar, firstName1, lastName1, nickname, bio,
                     </div>
                     <div className={cx('footer')}>
                         <button className={cx('btn')} onClick={handleCancel}>
-                            <FormattedMessage key="profile.cancel" />
+                            <FormattedMessage id="profile.cancel" />
                         </button>
                         <button className={cx('btn', 'active')} onClick={handleSave}>
-                            <FormattedMessage key="profile.save" />
+                            <FormattedMessage id="profile.save" />
                         </button>
                     </div>
                 </div>

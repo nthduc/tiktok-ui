@@ -1,3 +1,13 @@
+@media (max-width: 740px) {
+    .search {
+        display: none;
+    }
+}
+.dark-mode {
+    background-color: var(--bg-color);
+    color: var(--text-color-black);
+}
+
 .wrapper {
     --search-border-radius: 92px;
     --search-height: 46px;
@@ -32,7 +42,51 @@
 .logo-link {
     display: flex;
 }
+.image {
+    width: 150px;
+}
 
+// mode dark
+.switch {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 44px;
+    height: 24px;
+    padding: 2px;
+    background-color: rgba(22, 22, 22, 0.012);
+    // border: 1px solid rgba(22, 22, 22, 0.5);
+    box-shadow: rgb(0 0 0 / 50%) 0px 0px 4px;
+
+    border-radius: 22px;
+    position: relative;
+    padding: 0 3px;
+}
+
+.turn-on {
+    position: relative;
+    background-color: #2374e1;
+    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
+    .switch-inner {
+        position: absolute;
+        left: calc(100% - 22px);
+    }
+}
+.switch-inner {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: var(--bg-color);
+    // background-color: #2374e1;
+    border-radius: 50%;
+    left: 2px;
+    box-shadow: rgb(0 0 0 / 50%) 0px 1px 2px;
+    transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
+}
+// mode dark
+.btn-upload {
+    color: var(--text-color-black);
+}
 
 //Actions
 .actions {
@@ -86,4 +140,10 @@
 
 .custom-login {
     color: red;
+}
+.message-icon {
+    width: 25px;
+}
+.btn-login {
+    color: white;
 }

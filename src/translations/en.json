@@ -13,7 +13,7 @@
     },
     "search": {
         "title": "Search accounts and videos",
-        "upload": "Up load",
+        "upload": "Upload",
         "login": "Login",
         "language": "English",
         "feedback": "Feedback and help",
@@ -92,7 +92,7 @@
         "send": "Send a message..."
     },
     "login": {
-        "title1": "Login TikTok Clone",
+        "title1": "Login",
         "title2": "Login with Qr Code",
         "qr": "Use QR code",
         "email": "Use phone / email / username",

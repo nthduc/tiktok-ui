@@ -48,10 +48,10 @@ const ModalSetting = ({ title, setModal, idVideo }: Props): JSX.Element => {
                     {title === 'delete' ? (
                         <div className={cx('body-delete')}>
                             <div className={cx('delete-title')}>
-                                <FormattedMessage key="watching.sure" />
+                                <FormattedMessage id="watching.sure" />
                             </div>
                             <div className={cx('btn-save', 'delete-btn')} onClick={handleDelete}>
-                                <FormattedMessage key="watching.delete" />
+                                <FormattedMessage id="watching.delete" />
                             </div>
                         </div>
                     ) : (
@@ -139,7 +139,7 @@ const ModalSetting = ({ title, setModal, idVideo }: Props): JSX.Element => {
                     {title === 'delete' ? (
                         <div className={cx('btn-save')} onClick={HandleCancel}>
                             {' '}
-                            <FormattedMessage key="watching.cancel" />
+                            <FormattedMessage id="watching.cancel" />
                         </div>
                     ) : (
                         <div className={cx('btn-save')} onClick={HandleCancel}>

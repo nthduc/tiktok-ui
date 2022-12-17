@@ -17,12 +17,18 @@ interface Props extends React.PropsWithChildren<unknown> {}
 const IntlProviderWrapper = ({ children }: Props) => {
     const messages = LanguageUtils.getFlattenedMessages();
     const [state, dispatch] = useStore();
+    
     return (
         <IntlProvider 
             locale={state.language}
             // @ts-ignore 
             messages={messages[state.language]} 
             defaultLocale="vi"
+            onError={(err) => {
+                if(err.code === "MISSING_TRANSLATION"){
+                    console.error("Không thể Load Ngôn Ngữ -> Liên hệ Nguyễn Đức", err.message);   
+                }
+            }}
             >
             {children}
         </IntlProvider>

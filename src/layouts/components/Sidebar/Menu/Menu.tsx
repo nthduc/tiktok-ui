@@ -1,7 +1,7 @@
 import { PropsWithChildren } from 'react'
-
-interface Props extends PropsWithChildren<unknown>{ }
-
+import { memo } from 'react';
+interface Props extends PropsWithChildren<unknown>{ };
+// Remove React.FC from Typescript template
 const Menu = ({ children } : Props): JSX.Element => {
   return (
    <nav>
@@ -10,4 +10,4 @@ const Menu = ({ children } : Props): JSX.Element => {
   )
 }
 
-export default Menu
+export default memo(Menu);
