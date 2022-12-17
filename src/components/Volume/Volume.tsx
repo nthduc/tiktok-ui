@@ -6,7 +6,7 @@ import styles from './Volume.module.scss';
 
 const cx = classNames.bind(styles);
 // @ts-ignore
-const initVolume = localStorage.getItem('VOLUME' || '0') / 100;
+const initVolume = localStorage.getItem('VOLUME' || '40') / 100;
 
 interface Props {
     videoRef: React.MutableRefObject<HTMLMediaElement>;
