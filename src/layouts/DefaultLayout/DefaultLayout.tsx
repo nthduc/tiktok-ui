@@ -7,7 +7,7 @@ import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 
 interface Props extends PropsWithChildren<unknown> { 
-    medium: string;
+    medium?: string;
 }
 // Remove React.FC from Typescript template
 const DefaultLayout = ({ children, medium }: Props): (JSX.Element | React.ReactNode | any) => {
