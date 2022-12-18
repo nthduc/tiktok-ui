@@ -5,7 +5,7 @@
     font-size: 1.8rem;
     font-weight: 700;
     border-radius: 4px;
-    color: var(--text-color);
+    color: var(--text-color-black);
     transition: background-color ease-in-out 200ms;
 
     &.active {
@@ -35,4 +35,9 @@
 
 .active-icon {
     display: none;
+}
+@media (max-width: 740px) {
+    .title {
+        display: none;
+    }
 }

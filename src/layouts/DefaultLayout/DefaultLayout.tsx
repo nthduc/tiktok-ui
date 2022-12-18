@@ -7,16 +7,16 @@ import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 
 interface Props extends PropsWithChildren<unknown> { 
-
+    medium: string;
 }
 // Remove React.FC from Typescript template
-const DefaultLayout = ({ children }: Props): (JSX.Element | React.ReactNode | any) => {
+const DefaultLayout = ({ children, medium }: Props): (JSX.Element | React.ReactNode | any) => {
     return (
         <div className={cx('wrapper')}>
             <Header />
             <div className={cx('container')}>
                 <Sidebar />
-                <div className={cx('content')}>{children}</div>
+                <div className={cx('content', medium && 'medium')}>{children}</div>
             </div>
         </div>
     );
