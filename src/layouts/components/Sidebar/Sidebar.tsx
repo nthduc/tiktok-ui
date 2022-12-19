@@ -70,8 +70,8 @@ const Sidebar = ({ medium }: Props): JSX.Element => {
         localStorage.getItem('USER_LOG_IN') &&
             userService
                 .getFollowing({ page: page1 })
-                .then((data1) => {
-                    setFollowingUser((prev: Array<DataUserSuggested> | any) => [...prev, ...data1]);
+                .then((data) => {
+                    setFollowingUser((prev: Array<DataUserSuggested> | any) => [...prev, ...data]);
                 })
                 .catch((error) => console.log(error));
     }, [page1]);

@@ -1,13 +1,14 @@
-.wrapper{
+.wrapper {
+    background-color: var(--bg-gray);
+    color: var(--text-color-black);
     display: flex;
     align-items: center;
     padding: 6px 16px;
     cursor: pointer;
 
     &:hover {
-        
+        background-color: var(--bg-color-hover);
     }
-
 }
 
 .avatar{
