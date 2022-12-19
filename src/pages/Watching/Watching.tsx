@@ -60,8 +60,8 @@ const Watching = (): JSX.Element => {
     const [hasValue, setHasValue] = useState<boolean>(false);
     // useRef
     const videoRef = useRef<HTMLVideoElement>(null) as React.MutableRefObject<HTMLVideoElement>;
-    const inputRef = useRef<HTMLInputElement>(null);
-    const lastRef = useRef<HTMLDivElement>(null);
+    const inputRef = useRef<HTMLInputElement>(null) as React.MutableRefObject<HTMLInputElement>;
+    const lastRef = useRef<HTMLDivElement>(null) as React.MutableRefObject<HTMLDivElement>;
     // history
     const history = createBrowserHistory();
     const goBack = () => {
@@ -73,6 +73,8 @@ const Watching = (): JSX.Element => {
         play ? videoRef.current.play() : videoRef.current.pause();
     };
 
+    //
+    console.log("data",data)
     // useEffect
     useEffect(() => {
         anUserService
