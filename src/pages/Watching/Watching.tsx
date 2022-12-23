@@ -70,7 +70,7 @@ const Watching = (): JSX.Element => {
 
     const handlePlay = () => {
         setPlay(!play);
-        play ? videoRef.current.play() : videoRef.current.pause();
+        play ? videoRef.current?.play() : videoRef.current?.pause();
     };
 
     //

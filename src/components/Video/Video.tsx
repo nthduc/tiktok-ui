@@ -141,10 +141,10 @@ const VideoContent = ({ video, like, nickName, id, setLogin, comment, share, is_
     const [likes, setLikes] = useState(like);
     const handleClick = () => {
         if (!isPlaying) {
-            videoRef.current.play();
+            videoRef.current?.play();
             setIsPlaying(true);
         } else {
-            videoRef.current.pause();
+            videoRef.current?.pause();
             setIsPlaying(false);
         }
     };
@@ -160,12 +160,12 @@ const VideoContent = ({ video, like, nickName, id, setLogin, comment, share, is_
     useEffect(() => {
         if (isVisible) {
             if (!isPlaying) {
-                videoRef.current.play();
+                videoRef.current?.play();
                 setIsPlaying(true);
             }
         } else {
             if (isPlaying) {
-                videoRef.current.pause();
+                videoRef.current?.pause();
                 setIsPlaying(false);
             }
         }

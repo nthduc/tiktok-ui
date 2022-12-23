@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { NavLink, To } from 'react-router-dom';
 import className from 'classnames/bind';
 import styles from './Menu.module.scss';
