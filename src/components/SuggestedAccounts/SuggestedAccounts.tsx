@@ -27,7 +27,7 @@ const SuggestedAccounts = ({ label, data = [], onViewChange, seeMore }: Props): 
             <p className={cx('label')}>{label}</p>
 
             {data?.map((account) => (
-                <AccountItem key={account.id} data={account} />
+                <AccountItem key={account.id} data={account} isFollowBtn={isFollowBtn} />
             ))}
 
             <p className={cx('more-btn')} onClick={onViewChange}>

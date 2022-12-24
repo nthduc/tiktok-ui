@@ -137,7 +137,7 @@ const VideoInfo = ({ data }: DataVideo) => {
 const VideoContent = ({ video, like, nickName, id, setLogin, comment, share, is_liked }: PropsVideoContent) => {
     const [isPlaying, setIsPlaying] = useState<boolean>(false);
     const [heart, setHeart] = useState(is_liked);
-    const videoRef = useRef() as React.MutableRefObject<HTMLMediaElement> as any;
+    const videoRef = useRef<HTMLVideoElement>(null) as React.MutableRefObject<HTMLVideoElement> as any;
     const [likes, setLikes] = useState(like);
     const handleClick = () => {
         if (!isPlaying) {
