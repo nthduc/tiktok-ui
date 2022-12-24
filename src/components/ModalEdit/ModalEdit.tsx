@@ -29,7 +29,7 @@ const ModalEdit = ({ setModalEdit, avatar, firstName1, lastName1, nickname, bio,
     const [firstName, setFirstName] = useState<string>(firstName1);
     const [lastName, setLastName] = useState<string>(lastName1);
     const [avatarEdit, setAvatarEdit] = useState(avatar);
-    const [avatarDone, setAvatarDone] = useState<string>('');
+    const [avatarDone, setAvatarDone] = useState<string | File>('');
     const [saving, setSaving] = useState<boolean>(false);
     // handle Base64
     const getBase64 = (file: File) => {
@@ -48,11 +48,12 @@ const ModalEdit = ({ setModalEdit, avatar, firstName1, lastName1, nickname, bio,
     };
     // hanle Input Avatar
     const handleInputAvatar = async (e: React.ChangeEvent<HTMLInputElement>) => {
-        const target = event?.target as HTMLInputElement;
+        const target = e?.target as HTMLInputElement;
         if (!target.files?.length) {
             return;
         }
         const file: File = (target.files as FileList)[0];
+        setAvatarDone(file);
         if (file) {
             const base64 = await getBase64(file);
             setAvatarEdit(base64);
