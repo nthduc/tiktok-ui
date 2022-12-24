@@ -23,7 +23,7 @@ interface Props {
 
 // Remove React.FC from Typescript template
 const FollowAccount = ({ avatar, id, name, check, is_followed, nickName, followers, like }: Props): JSX.Element => {
-    const [follow, setFollow] = useState<boolean>(is_followed ?? false);
+    const [follow, setFollow] = useState<boolean>(is_followed!);
     const [login, setLogin] = useState<boolean>(false);
 
     // handleClick

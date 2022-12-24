@@ -14,12 +14,12 @@ interface Props {
 // Remove React.FC from Typescript template
 const FollowingItem = ({ data } : Props) : JSX.Element => {
     const mouseOver = (e: React.SyntheticEvent<EventTarget>) => {
-        (e.target as HTMLMediaElement).play();
-        (e.target as HTMLMediaElement).volume = 0;
+        (e.target as HTMLVideoElement).play();
+        (e.target as HTMLVideoElement).volume = 0;
     };
 
     const mouseOut = (e: React.SyntheticEvent<EventTarget>) => {
-        (e.target as HTMLMediaElement).pause();
+        (e.target as HTMLVideoElement).pause();
     };
 
     return (
