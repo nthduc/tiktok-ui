@@ -1,6 +1,5 @@
-//Menu Wrapper
 .menu-list {
-    width: 230px;
+    width: 224px;
 
     .menu-item {
         margin-left: 0;
@@ -9,36 +8,35 @@
 
 .menu-popper {
     padding-bottom: 8px;
+    background-color: white;
 }
 .menu-body {
-    overflow-y: auto;
-
+    overflow-y: overlay;
 }
-//Menu Items
+// menu item
 .menu-item {
-    width: 100%;
     justify-content: flex-start;
+    width: 100%;
     border-radius: 0;
+    font-weight: 600;
     padding: 11px 16px;
     line-height: 1.8rem;
-    font-weight: 700;
-    font-family: var(--font-family);
+    background-color: white;
 
     &.separate {
         border-top: 1px solid var(--border-color);
     }
 
     &:hover {
-        background-color: rgba(22, 24, 35, 0.03);
+        background-color: rgba(225, 225, 225, 0.3);
     }
 }
-
-//Header
+// header
 .header {
     position: relative;
-    flex-shrink: 0;
     height: 50px;
     margin-top: -8px;
+    flex-shrink: 0;
 }
 
 .back-btn {
@@ -52,5 +50,5 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 }

@@ -15,7 +15,7 @@ const DefaultLayout = ({ children, medium }: Props): (JSX.Element | React.ReactN
         <div className={cx('wrapper')}>
             <Header />
             <div className={cx('container')}>
-                <Sidebar />
+                <Sidebar medium={medium} />
                 <div className={cx('content', medium && 'medium')}>{children}</div>
             </div>
         </div>

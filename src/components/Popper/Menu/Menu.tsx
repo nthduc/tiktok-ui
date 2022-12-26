@@ -13,7 +13,7 @@ const cx = classNames.bind(styles);
 
 export type MenuItems = {
         icon: React.ReactElement;
-        title: string;
+        title: string | any;
         type?: string;
         to?: string;
         children?: Object;
@@ -36,6 +36,7 @@ type History = {
     title?: string;
     data: MenuItems[];
 };
+
 
 const defaultFn = () => {};
 // Remove React.FC from Typescript template

@@ -6,10 +6,10 @@ import styles from './Volume.module.scss';
 
 const cx = classNames.bind(styles);
 // @ts-ignore
-const initVolume = localStorage.getItem('VOLUME' || '40') / 100;
+const initVolume = localStorage.getItem('VOLUME') / 100;
 
 interface Props {
-    videoRef: React.MutableRefObject<HTMLMediaElement>;
+    videoRef: React.MutableRefObject<HTMLVideoElement>;
 };
 
 // Remove React.FC from Typescript template
@@ -18,12 +18,12 @@ const Volume = ( { videoRef }: Props): JSX.Element => {
     const [volume, setVolume] = useState<number>(initVolume);
 
     const progressRef = useRef<HTMLProgressElement>(null) as (React.MutableRefObject<HTMLProgressElement>) as any;
-    const [inputValue, setInputValue] = useState<string | number>(localStorage.getItem('VOLUME') ?? 0);
+    const [inputValue, setInputValue] = useState<string | number>(localStorage.getItem('VOLUME') ?? 40);
     const handleInput = (e : React.ChangeEvent<HTMLInputElement>) => {
         progressRef.current.value = e.target.value;
-        setInputValue(e.target.valueAsNumber);
+        setInputValue(e.target.value);
         setVolume(e.target.valueAsNumber / 100);
-        localStorage.setItem('VOLUME', e.target.value);
+        localStorage.setItem('VOLUME', e.target?.value);
     };
 
     useEffect(() => {

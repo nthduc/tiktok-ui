@@ -33,7 +33,10 @@
     --default-layout-header-height: 60px;
     --default-layout-width: 1150px;
     --default-layout-horizontal-spacer: 24px;
-    
+    --width-sidebar: 330px;
+
+     // mode
+     --test-color: #3b3be7;
     
 }
 //Font Embeded
@@ -86,8 +89,11 @@ body {
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
-    color : var(--black);
+    overflow-y: overlay;
     background-color: var(--bg-color-white);
+}
+html body {
+    overflow-y: overlay;
 }
 //ScrollBar CSS
 html *::-webkit-scrollbar {
@@ -119,13 +125,11 @@ a {
 //Custom Tippy tooltip
 body{
       .tippy-box {
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 1.6rem;
-    line-height: 2.2rem;
-    // background-color: rgba(84,84,84,0.92);
-    background-color: var(--bg-color);
-    overflow-y: overlay;
+        border-radius: 8px;
+        font-size: 1.6rem;
+        font-weight: 600;
+        line-height: 2.2rem;
+        background-color: var(--bg-color);
   }
   
 

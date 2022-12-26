@@ -7,7 +7,7 @@ import styles from './UserCommentMore.module.scss';
 const cx = classNames.bind(styles);
 const avatar =
     'https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/1966fcda97fb1bc61ca3625ac98a5714~c5_100x100.jpeg?x-expires=1661223600&x-signature=BJWqsMUWTVfUKM2Ab36Tzt3bN14%3D';
-const nickName = 'quynhnv2300';
+const nickName = 'nguyenthaiduc';
 const comment = 'khi co dua ban la dai ca';
 const time = 5;
 const likeComment = 345;

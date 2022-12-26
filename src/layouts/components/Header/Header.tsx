@@ -1,6 +1,5 @@
 import Search from '../Search';
 import Tippy from '@tippyjs/react';
-import ReactDOM from 'react-dom/client';
 import className from 'classnames/bind';
 import React, { useEffect, useState } from 'react';
 import 'tippy.js/dist/tippy.css'; // optional
@@ -21,14 +20,16 @@ import {
 } from '@/components/Icons';
 import Image from '@/components/Image';
 import Menu, { MenuItems } from '@/components/Popper/Menu';
-import Modal from '@/components/Modal';
 import styles from './Header.module.scss';
-import config from '@/config';
 import { LanguageData } from '@/data/language';
 import { useStore } from '@/hooks';
 import ModalOverlay from '@/components/ModalOverlay';
-import { BsFillMoonStarsFill, BsSun } from 'react-icons/bs';
+import { BsCloudUpload, BsFillMoonStarsFill, BsSun } from 'react-icons/bs';
 import { FormattedMessage } from 'react-intl';
+import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import config from '@/config';
 
 const cx = className.bind(styles);
 
@@ -43,12 +44,12 @@ const MENU_ITEMS = [
     },
     {
         icon: <FeedbackIcon />,
-        title: 'Feedback and Help',
+        title: <FormattedMessage id="search.feedback" />,
         to: '/feedback',
     },
     {
         icon: <KeyboardIcon />,
-        title: 'Keyboard shortcuts',
+        title: <FormattedMessage id="search.keyboard" />,
     },
 ];
 
@@ -89,7 +90,7 @@ const linkImage2 = images.loadingLogo;
 const Header: React.FC = () => {
     // State
     const [currentUser, setCurrentUser] = useState({ userLogIn, status });
-    const [modalIsOpen, setIsOpen] = useState<boolean>(false);
+    // const [modalIsOpen, setIsOpen] = useState<boolean>(false);
     const [login, setLogin] = useState<boolean>(false);
     const [isDark, setIsDark] = useState<boolean>(false);
 
@@ -103,13 +104,13 @@ const Header: React.FC = () => {
         }
     }, [state]);
 
-    function openModal() {
-        setIsOpen(true);
-    }
+    // function openModal() {
+    //     setIsOpen(true);
+    // }
 
-    function closeModal() {
-        setIsOpen(false);
-    }
+    // function closeModal() {
+    //     setIsOpen(false);
+    // }
 
     //handle
     const handleMenuChange = (menuItem: MenuItems) => {
@@ -159,102 +160,86 @@ const Header: React.FC = () => {
     };
     return (
         <header className={cx('wrapper')}>
-            {login ? <ModalOverlay setLogin={setLogin} /> : ''}
-            <div className={cx('inner')}>
-                {/* Logo */}
-                <div className={cx('logo')}>
-                    <Link to={config.routes.home} className={cx('logo-link')}>
-                        {/* <img src={images.logo} alt="TikTok" /> */}
-                        {!isDark ? (
-                        <Image  src={images.logo} alt="TikTok" />
-                    ) : (
-                        // <img className={cx('logo-image')} src={images.logo} alt="TikTok" />
-                        <div className={cx('logo-image')}>
-                            <Image src={images.logoWhite} />
-                            {/* <Image src={linkImage2} /> */}
-                        </div>
-                    )}
-                    </Link>
-                </div>
-                {/* Search */}
-                {/* Hover vào sẽ hiện ra text */}
-                <Search />
-
-                {/* End Search */}
-
-                {/* Check User */}
-                <div className={cx('actions')}>
-                <div className={cx('switch', isDark && 'turn-on')} onClick={handleDarkMode}>
-                        <p className={cx('switch-inner')}></p>
-                        <BsSun />
-                        <BsFillMoonStarsFill />
+        {login ? <ModalOverlay setLogin={setLogin} /> : ''}
+        <div className={cx('inner')}>
+        <div className={cx('logo')}>
+            <Link to={config.routes.home} className={cx('logo-link')}>
+                {!isDark ? (
+                    <Image  src={images.logo} alt="TikTok" />
+                ) : (
+                    // <img className={cx('logo-image')} src={images.logo} alt="TikTok" />
+                    <div className={cx('logo-image')}>
+                        <Image src={images.logoWhite} alt="TikTok" />
+                      
                     </div>
-                    {currentUser?.status ? (
-                        <>
-                            <Tippy delay={[0, 200]} content={<FormattedMessage id="search.upLoad" />} placement="bottom">
-                            <Link to="/upload">
+                )}
+            </Link>
+            </div>
+            {/* search */}
+
+            <div className={cx('search')}>
+                <Search />
+            </div>
+
+            <div className={cx('actions')}>
+                <div className={cx('switch', isDark && 'turn-on')} onClick={handleDarkMode}>
+                    <p className={cx('switch-inner')}></p>
+                    <BsSun />
+                    <BsFillMoonStarsFill />
+                </div>
+
+                {currentUser?.status ? (
+                    <>
+                        <Tippy delay={[0, 200]} content={<FormattedMessage id="search.upLoad" />} placement="bottom">
+                            <Link to={config.routes.upload}>
                                 <button className={cx('action-btn')}>
                                     <UploadIcon />
                                 </button>
-                                </Link>
-                            </Tippy>
-
-                            <Tippy delay={[0, 1]} content={<FormattedMessage id="search.message" />}>
-                            <Link to="/messages">
+                            </Link>
+                        </Tippy>
+                        <Tippy
+                            delay={[0, 1]}
+                            content={<FormattedMessage id="search.message" />}
+                           
+                        >
+                            <Link to={config.routes.messages}>
                                 <button className={cx('action-btn')}>
-                                    {/* <img src = {images.message} /> */}
-                                    <MessageIcon />
+                                    <MessageIcon className={cx('message-icon')} />
                                 </button>
-                                </Link>
-                            </Tippy>
-                            <Tippy delay={[0, 2]} content={<FormattedMessage id="search.box" />}>
-                                <button className={cx('action-btn')}>
-                                    {/* <img src = {images.inbox} /> */}
-                                    <InboxIcon />
-                                    <span className={cx('badge')}>10</span>
-                                </button>
-                            </Tippy>
-                        </>
-                    ) : (
-                        <>
-                            {/* RIGHT HEADER */}
-                            {/* <div id="publish btn"></div> */}
-                            <Button
-                                text
-                                onClick={HandleLogin}
-                                className={cx('btn-upload')}
-                            >
-                                <FormattedMessage id="search.upload" />
-                            </Button>
-                            <Button
-                                primary
-                                onClick={HandleLogin}
-                                // leftIcon={<FontAwesomeIcon icon={faSignIn as IconProp} />}
-                                className={cx('btn-login')}
-                            >
-                                <FormattedMessage id="search.login" />
-                            </Button>
-                        </>
-                    )}
-                    {/* Elipsis */}
-                    <Menu items={item} onChange={handleMenuChange}>
-                        {currentUser?.status ? (
-                            <Image
-                                className={cx('user-avatar')}
-                                src={JSON.parse(currentUser?.userLogIn || '').avatar}
-                                alt="Logo Username"
-                                fallback="https://avatars.githubusercontent.com/u/73944631?v=4"
-                            />
-                        ) : (
-                            <button className={cx('more-btn')}>
-                                <img src={images.elipsis} />
+                            </Link>
+                        </Tippy>
+                        <Tippy delay={[0, 2]} content={<FormattedMessage id="search.box" />}>
+                            <button className={cx('action-btn')}>
+                                <InboxIcon />
+                                <span className={cx('badge')}>10</span>
                             </button>
-                        )}
-                    </Menu>
-                </div>
+                        </Tippy>
+                    </>
+                ) : (
+                    <>
+                         {/* RIGHT HEADER */}
+                        {/* <div id="publish btn"></div> */}
+                        <Button text onClick={HandleLogin} className={cx('btn-upload')}>
+                            <FormattedMessage id="search.upload" />
+                        </Button>
+                        <Button primary onClick={HandleLogin} className={cx('btn-login')}>
+                            <FormattedMessage id="search.login" />
+                        </Button>
+                    </>
+                )}
+                <Menu items={item} onChange={handleMenuChange}>
+                    {currentUser?.status ? (
+                        <Image src={JSON.parse(currentUser?.userLogIn!).avatar} className={cx('user-avatar')} />
+                    ) : (
+                        // </Link>
+                        <button className={cx('more-btn')}>
+                            <Image src={images.elipsis}/>
+                        </button>
+                    )}
+                </Menu>
             </div>
-            {/* Modal */}
-        </header>
+        </div>
+    </header>
     );
 };
 

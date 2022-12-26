@@ -55,7 +55,6 @@ const MenuItem  = ({ data, onClick }: Props): JSX.Element => {
    className = {cx(classes)}
    onClick = {() => handleClick(data)}
 
-
    >
        {data.title}
        </Button>

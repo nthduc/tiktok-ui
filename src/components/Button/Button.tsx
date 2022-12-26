@@ -5,7 +5,7 @@ import styles from './Button.module.scss';
 
 const cx = classNames.bind(styles);
 
-interface Props extends PropsWithChildren<unknown> {
+interface Props extends PropsWithChildren<unknown>,React.ComponentPropsWithoutRef<'button'> {
     to?: string;
     href?: string;
     primary?: boolean;

@@ -1,35 +1,28 @@
 .wrapper {
     display: flex;
-    flex-direction: column; /* theo chieu doc */
-    align-items: center;
-    //
+    flex-direction: column;
     background-color: var(--bg-color);
     justify-content: flex-start;
     min-height: 100vh;
-
 }
 
 .container {
-    width: var(--default-layout-width);
-    max-width: 100%;
+    width: 100%;
     padding: 0 calc(var(--default-layout-horizontal-spacer) - 6px);
+    max-width: var(--default-layout-width);
     margin-top: var(--default-layout-header-height);
     display: flex;
-    //
     justify-content: space-between;
     align-self: center;
     flex: auto;
     background-color: var(--bg-color);
-   
 }
 .content {
-//    flex: 1;
-   margin-left: calc(var(--width-sidebar) + 50px);
-   width: 100%;
-   padding: 24px 0;
-   position: relative;
-}   
-
+    margin-left: calc(var(--width-sidebar) + 50px);
+    width: 100%;
+    padding: 24px 0;
+    position: relative;
+}
 .content.medium {
     margin-left: 250px;
 }
@@ -51,4 +44,3 @@
         margin: auto;
     }
 }
-

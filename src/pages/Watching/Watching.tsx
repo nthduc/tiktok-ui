@@ -39,6 +39,7 @@ const Watching = (): JSX.Element => {
     const match = useLocation();
     const query = new URLSearchParams(match.search);
     const idVideo = query.get('id') as any;
+    // console.log("ID",idVideo);
     // useState
     const [count, setCount] = useState<number>(0);
     const [data, setData] = useState<Array<DataUserSuggested> | any>([]);
@@ -74,7 +75,7 @@ const Watching = (): JSX.Element => {
     };
 
     //
-    console.log("data",data)
+ 
     // useEffect
     useEffect(() => {
         anUserService
@@ -86,15 +87,15 @@ const Watching = (): JSX.Element => {
                 setData(data.user);
                 data.is_followed ? setIsFollow(true) : setIsFollow(false);
                 setLinkVideo(data);
-                setIdLink(idVideo ?? '');
+                setIdLink(idVideo);
                 setHeart(data.is_liked);
                 setLikes(data.likes_count);
                 setDay(data.created_at.split(' ')[0].split('-')[2]);
                 setMonth(data.created_at.split(' ')[0].split('-')[1]);
             })
             .catch((error) => console.log(error));
-    }, [idVideo]);
-
+    }, [linkVideo, change]);
+    // console.log("data",data)
     useEffect(() => {
         // @ts-ignore
         if (JSON.parse(localStorage.getItem('USER_LOG_IN'))?.nickname === data.nickname) {

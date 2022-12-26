@@ -51,6 +51,8 @@ const VideoInfo = ({ data }: DataVideo) => {
             setLogin(true);
         }
     };
+
+    const name = data.user.first_name + data.user.last_name;
     return (
         <div className={cx('wrapper')}>
             {login ? <ModalOverlay setLogin={setLogin} /> : ''}
@@ -86,7 +88,7 @@ const VideoInfo = ({ data }: DataVideo) => {
                         {/* follow user */}
                         <div className={cx('follow-account')}>
                             <FollowAccount
-                                name={data.user.name}
+                                name={name}
                                 avatar={data.user.avatar}
                                 nickName={data.user.nickname}
                                 followers={data.user.followers_count}
@@ -110,7 +112,7 @@ const VideoInfo = ({ data }: DataVideo) => {
                         like={data.likes_count}
                         nickName={data.user.nickname}
                         idUser={data.user.id}
-                        id={data.user.id}
+                        id={data.id}
                         video={data.file_url}
                         is_liked={data.is_liked}
                         comment={data.comments_count}

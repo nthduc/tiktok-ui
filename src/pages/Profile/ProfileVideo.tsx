@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
-interface Props {
+export interface PropsProfileVideo {
    video: {
     user: {nickname: string},
     file_url: string;
@@ -16,7 +16,7 @@ interface Props {
    }
 };
 // Remove React.FC from Typescript template
-const ProfileVideo = ({ video }: Props) => {
+const ProfileVideo = ({ video }: PropsProfileVideo) => {
     const mouseOver = (e: React.SyntheticEvent<EventTarget>) => {
         (e.target as HTMLMediaElement).play();
         (e.target as HTMLMediaElement).volume = 0;
