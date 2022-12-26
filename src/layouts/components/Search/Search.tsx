@@ -20,7 +20,7 @@ const cx = className.bind(styles);
 
 const Search: React.FC = () => {
     //STATE
-    const [searchValue,setSearchValue] = useState<string>('')
+    const [searchValue,setSearchValue] = useState<string>('');
     const [searchResult, setSearchResult] = useState<Array<DataSearchAccount>>([]);
     const [showResult,setShowResult] = useState<boolean>(false);
     const [loading,setLoading] = useState<boolean>(false);

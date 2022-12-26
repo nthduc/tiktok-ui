@@ -5,8 +5,8 @@ import { BsVolumeMuteFill } from 'react-icons/bs';
 import styles from './Volume.module.scss';
 
 const cx = classNames.bind(styles);
-// @ts-ignore
-const initVolume = localStorage.getItem('VOLUME') / 100;
+
+const initVolume = parseInt(localStorage.getItem('VOLUME') || '0', 10) / 100;
 
 interface Props {
     videoRef: React.MutableRefObject<HTMLVideoElement>;
@@ -20,9 +20,9 @@ const Volume = ( { videoRef }: Props): JSX.Element => {
     const progressRef = useRef<HTMLProgressElement>(null) as (React.MutableRefObject<HTMLProgressElement>) as any;
     const [inputValue, setInputValue] = useState<string | number>(localStorage.getItem('VOLUME') ?? 40);
     const handleInput = (e : React.ChangeEvent<HTMLInputElement>) => {
-        progressRef.current.value = e.target.value;
-        setInputValue(e.target.value);
-        setVolume(e.target.valueAsNumber / 100);
+        progressRef.current.value = e.target?.value;
+        setInputValue(e.target?.value);
+        setVolume(e.target?.valueAsNumber / 100);
         localStorage.setItem('VOLUME', e.target?.value);
     };
 
@@ -35,7 +35,9 @@ const Volume = ( { videoRef }: Props): JSX.Element => {
         if (volume !== 0) {
             setVolume(0);
             setInputValue(0);
-            progressRef.current.valueAsNumber = 0;
+            if (progressRef.current) {
+                progressRef.current.valueAsNumber = 0;
+              }
         } else {
             setVolume(initVolume);
             setInputValue(initVolume * 100);

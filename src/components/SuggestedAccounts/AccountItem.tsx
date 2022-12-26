@@ -9,7 +9,7 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import AccountPreview from './AccountPreview';
 import { DataUserSuggested } from '@/interfaces';
 import Image from '@/components/Image';
-import { useCallback, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import * as userService  from '@/services'
 import ModalOverlay from '@/components/ModalOverlay';
 
@@ -78,4 +78,4 @@ const AccountItem = ({ data , isFollowBtn}: Props): JSX.Element => {
     );
 };
 
-export default AccountItem;
+export default memo(AccountItem);

@@ -3,7 +3,7 @@ import FollowingVideo from '@/components/FollowingVideo';
 import styles from './Following.module.scss';
 
 import * as userService from '@/services/userService';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState,memo } from 'react';
 import LoadingIcon from '@/components/LoadingIcon/LoadingIcon';
 import { DataUserSuggested } from '@/interfaces';
 
@@ -59,7 +59,7 @@ const Following: React.FC = (): JSX.Element => {
     );
 };
 
-export default Following;
+export default memo(Following);
 
 /**
  * @author - Nguyen Thai Duc

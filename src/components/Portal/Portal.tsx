@@ -12,9 +12,9 @@ const Portal = ({ children, containerId }: Props): JSX.Element => {
     useEffect(() => {
         let container = document?.querySelector(`#${containerId}`);
         if (!container) {
-            container = document.createElement('div');
+            container = document?.createElement('div');
             container.id = containerId as string;
-            document.body.appendChild(container);
+            document?.body.appendChild(container);
         }
 
         setWrapper(container);
@@ -22,7 +22,7 @@ const Portal = ({ children, containerId }: Props): JSX.Element => {
         //Clean up  
         return () => {
             if (!containerId) {
-                document.body.removeChild(container as Element);
+                document?.body.removeChild(container as Element);
             }
         };
     }, [containerId]);

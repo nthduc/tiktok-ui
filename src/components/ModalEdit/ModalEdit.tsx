@@ -68,12 +68,12 @@ const ModalEdit = ({ setModalEdit, avatar, firstName1, lastName1, nickname, bio,
 
     // handle text nickname
     const handleTextNickname = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setNicknameEdit(e.target.value);
+        setNicknameEdit(e?.target?.value);
     };
 
     // handle Text Bio
     const handleTextBio = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setBioEdit(e.target.value);
+        setBioEdit(e?.target?.value);
     };
 
     // handle Cancel

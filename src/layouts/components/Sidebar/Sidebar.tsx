@@ -32,7 +32,7 @@ interface Props {
 const Sidebar = ({ medium }: Props): JSX.Element => {
     // STATE
     const [suggestedUsers, setSuggestedUsers] = useState<Array<DataUserSuggested>>([]);
-    const [followingUser, setFollowingUser] = useState<Array<DataUserSuggested> | any>([]);
+    const [followingUser, setFollowingUser] = useState<Array<DataUserSuggested>>([]);
     const [page, setPage] = useState<number>(INIT_PAGE);
     const [page1, setPage1] = useState<number>(INIT_PAGE);
     const [login, setLogin] = useState<boolean>(false);
@@ -51,7 +51,7 @@ const Sidebar = ({ medium }: Props): JSX.Element => {
         const fetchApi = async () => {
             try {
                 const res = await userService.getSuggested({ page , perPage: PER_PAGE });
-                setSuggestedUsers((prevUsers: Array<DataUserSuggested> | any) => {
+                setSuggestedUsers((prevUsers: Array<DataUserSuggested>) => {
                     if(prevUsers.length > 0) {
                         return [...res];
                     } else {
@@ -71,7 +71,7 @@ const Sidebar = ({ medium }: Props): JSX.Element => {
             userService
                 .getFollowing({ page: page1 })
                 .then((data) => {
-                    setFollowingUser((prev: Array<DataUserSuggested> | any) => [...prev, ...data]);
+                    setFollowingUser((prev: Array<DataUserSuggested>) => [...prev, ...data]);
                 })
                 .catch((error) => console.log(error));
     }, [page1]);

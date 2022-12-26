@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
 
-function useElementOnScreen(options:IntersectionObserverInit, targetRef: React.MutableRefObject<HTMLMediaElement>) {
-    const [isVisible, setIsVisible] = useState();
-    const callbackFunction = (entries: any) => {
+const useElementOnScreen = (options:IntersectionObserverInit, targetRef: React.MutableRefObject<HTMLMediaElement>) => {
+    const [isVisible, setIsVisible] = useState<boolean>(false);
+    const callbackFunction = (entries: IntersectionObserverEntry[]) => {
         const [entry] = entries;
         setIsVisible(entry.isIntersecting);
     };
