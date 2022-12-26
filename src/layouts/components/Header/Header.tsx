@@ -169,8 +169,9 @@ const Header: React.FC = () => {
                 ) : (
                     // <img className={cx('logo-image')} src={images.logo} alt="TikTok" />
                     <div className={cx('logo-image')}>
-                        <Image src={images.logoWhite} alt="TikTok" />
-                      
+                        {/* <Image src={images.logoWhite} alt="TikTok" /> */}
+                        <Image src={linkImage1} />
+                        <Image src={linkImage2} />
                     </div>
                 )}
             </Link>
@@ -233,7 +234,7 @@ const Header: React.FC = () => {
                     ) : (
                         // </Link>
                         <button className={cx('more-btn')}>
-                            <Image src={images.elipsis}/>
+                            <FontAwesomeIcon icon={faEllipsisVertical as IconProp} />
                         </button>
                     )}
                 </Menu>
