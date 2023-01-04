@@ -1,0 +1,83 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: "TikTok UI API"
+  description: "API for the TikTok UI project"
+  contact:
+    name: "Nguyen Thai Duc"
+    email: "nguyenthaiduc0212@gmail.com"
+  license:
+    name: "MIT"
+    url: "https://opensource.org/licenses/MIT"
+basePath: "/api"
+schemes:
+  - "https"
+paths:
+  /search:
+    get:
+      summary: "Search for TikToks"
+      description: "Searches for TikToks matching the given query."
+      parameters:
+        - name: "query"
+          in: "query"
+          description: "The search query"
+          required: true
+          type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/TikTok"
+  /tiktok/{id}:
+    get:
+      summary: "Get a TikTok by ID"
+      description: "Gets the TikTok with the given ID."
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "The TikTok ID"
+          required: true
+          type: "string"
+responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/TikTok"
+        404:
+          description: "Not Found"
+          schema:
+            $ref: "#/definitions/Error"
+definitions:
+  TikTok:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      user:
+        $ref: "#/definitions/User"
+      caption:
+        type: "string"
+      media:
+        type: "string"
+      likes:
+        type: "integer"
+      comments:
+        type: "integer"
+  User:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      username:
+        type: "string"
+      name:
+        type: "string"
+      profile_picture:
+        type: "string"
+  Error:
+    type: "object"
+    properties:
+      message:
+        type: "string"

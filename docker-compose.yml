@@ -1,0 +1,23 @@
+version: '3'
+services:
+  tiktok-ui:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - "./:/app"
+      - "./src:/app/src"
+      - "./.env:/app/.env"
+    command: yarn start
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - "./api:/app"
+      - "./.env:/app/.env"
+    command: yarn start
+volumes:
+  db-data:
