@@ -1,6 +1,5 @@
 ### ***XÂY DỰNG DỰ ÁN TIKTOK SỬ DỤNG REACTJS***
 <div style = "display : flex; align-items: center">
-<img src = "https://img.youtube.com/vi/VCgk2y-LUJY/mqdefault.jpg"/>
 
 
 </div>
